@@ -5,12 +5,11 @@ namespace RankingApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    //used command . to use ASP namespace for the below line Controller Base
     public class ItemController : ControllerBase
     {
         private static readonly IEnumerable<ItemModel> Items = new[]
-   {
-     new ItemModel{Id =1, Title = "The Godfather", ImageId=1, Ranking=0,ItemType=1 },
+        {
+            new ItemModel{Id =1, Title = "The Godfather", ImageId=1, Ranking=0,ItemType=1 },
             new ItemModel{Id =2, Title = "Highlander", ImageId=2, Ranking=0,ItemType=1 },
             new ItemModel{Id =3, Title = "Highlander II", ImageId=3, Ranking=0,ItemType=1 },
             new ItemModel{Id =4, Title = "The Last of the Mohicans", ImageId=4, Ranking=0,ItemType=1 },
@@ -31,15 +30,13 @@ namespace RankingApp.Controllers
             new ItemModel{Id = 19, Title = "St. Anger", ImageId=19, Ranking=0,ItemType=2 },
             new ItemModel{Id = 20, Title = "The Final Countdown", ImageId=20, Ranking=0,ItemType=2 }
 
-   };
+        };
+
         [HttpGet("{itemType:int}")]
         public ItemModel[] Get(int itemType)
         {
             ItemModel[] items = Items.Where(i => i.ItemType == itemType).ToArray();
-            System.Threading.Thread.Sleep(2000);
             return items;
         }
     }
-
-
 }
